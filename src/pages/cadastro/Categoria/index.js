@@ -34,7 +34,9 @@ function CadastroCategoria() {
         .then(async (respostaDoServer) => {
           if (respostaDoServer.ok) {
             const resposta = await respostaDoServer.json();
-            setCategorias(resposta);
+            setCategorias([
+              ...resposta,
+            ]);
             return;
           }
           throw new Error('Não foi possível pegar os dados');
